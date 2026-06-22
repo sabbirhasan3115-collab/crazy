@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seven-Day Sprint &mdash; Study Tracker</title>
+<meta name="theme-color" content="#0b0f15">
+<meta name="description" content="A 7-day study tracker with live timers, period alarms and system notifications.">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="toastStack"></div>
+<div class="container">
+  <header class="app-head">
+    <div class="head-top">
+      <div class="brandblock">
+        <h1>Seven&#8209;Day Sprint</h1>
+        <p class="sub">Physics &middot; Chemistry &middot; Math &middot; Biology &middot; Bangla &middot; English &mdash; admission countdown</p>
+      </div>
+      <div class="settings-cluster">
+        <button class="icon-toggle on" id="soundToggle" onclick="toggleSound()" title="Toggle in-page sound alerts">
+          <span class="icon">&#x1F514;</span><span class="icon-label" id="soundLabel">Alerts on</span>
+        </button>
+        <button class="icon-toggle" id="notifToggle" onclick="toggleNotif()" title="Get a system notification banner even when this tab isn't focused">
+          <span class="icon">&#x1F515;</span><span class="icon-label" id="notifLabel">Enable background alerts</span>
+        </button>
+        <button class="icon-toggle" id="testToggle" onclick="testAlert()" title="Play the alarm sound and fire a test notification right now">
+          <span class="icon">&#x1F9EA;</span><span class="icon-label">Test alarm</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mission-strip">
+      <div class="mission-clock" id="liveClock">--:--:--</div>
+      <div class="mission-period idle" id="missionPeriod">
+        <div class="mp-name">Reading the clock&hellip;</div>
+      </div>
+    </div>
+
+    <div class="kpi-row" id="headerStats"></div>
+  </header>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="daily" onclick="switchTab('daily')">Daily + Topicwise</button>
+    <button class="tab-btn" data-tab="cq" onclick="switchTab('cq')">CQ Written</button>
+    <button class="tab-btn" data-tab="acc" onclick="switchTab('acc')">Accountability</button>
+  </nav>
+  <main>
+    <section class="tab-panel active" id="tab-daily"></section>
+    <section class="tab-panel" id="tab-cq"></section>
+    <section class="tab-panel" id="tab-acc"></section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
